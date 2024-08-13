@@ -2,8 +2,9 @@ import express from "express"
 import http from "http"
 import cors from "cors"
 import dotenv from "dotenv"
+import mongoose from "mongoose"
 
-import authRoutes from "./src/routes/authRoutes.js"
+import authRoutes from "./src/routes/authRoutes.js" 
 
 dotenv.config()
 
@@ -23,6 +24,13 @@ app.use('/api/auth',authRoutes);
 
 const server = http.createServer(app)
 
-server.listen((PORT), () => {
-    console.log(`Server is listening on ${PORT}`)
+mongoose
+.connect(process.env.MONGO_URI)
+.then(() => {
+    server.listen((PORT), () => {
+        console.log(`Server is listening on ${PORT}`)
+    })
+}).catch((error) => {
+    console.error("Database connection failed. Server not started : ",error)
 })
+
