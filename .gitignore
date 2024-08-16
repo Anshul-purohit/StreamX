@@ -1,2 +1,26 @@
 /Backend/node_modules
 /Backend/.env
+
+
+
+
+/Frontend/node_modules
+/Frontend/.pnp
+/Frontend.pnp.js
+
+# testing
+/Frontend/coverage
+
+# production
+/Frontend/build
+
+# misc
+/Frontend.DS_Store
+/Frontend.env.local
+/Frontend.env.development.local
+/Frontend.env.test.local
+/Frontend.env.production.local
+
+/Frontendnpm-debug.log*
+/Frontendyarn-debug.log*
+/Frontendyarn-error.log*

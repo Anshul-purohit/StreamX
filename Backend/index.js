@@ -30,7 +30,7 @@ mongoose
     server.listen((PORT), () => {
         console.log(`Server is listening on ${PORT}`)
     })
-}).catch((error) => {
-    console.error("Database connection failed. Server not started : ",error)
+}).catch((err) => {
+    console.error("Database connection failed. Server not started : ",err)
 })
 
