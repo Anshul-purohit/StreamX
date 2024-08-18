@@ -18,7 +18,7 @@
 
 import React, { useState } from 'react'
 import Logo from './Logo'
-import AuthInput  from './AuthInput'
+import AuthInput  from '../shared/components/Input'
 import { emailValidationMessage, validateEmail } from '../shared/validators/validateEmail'
 import { passwordValidationMessage, validatePassword } from '../shared/validators/validatePassword'
 import { usernameValidationMessage, validateUsername } from '../shared/validators/validateUsername'
