@@ -6,6 +6,8 @@ export const getChannelDetails = async (req,res) => {
     try {
         const { channelId } = req.params
 
+        // console.log("gggg : ",channelId)
+
         const channel = await Channel.findById(channelId)
 
         if(!channel || !channel.isActive){
@@ -26,6 +28,6 @@ export const getChannelDetails = async (req,res) => {
         })
     } catch (err) {
         console.log(err)
-        return res.status(500).send("Something went wrong.")
+        return res.status(500).send("Channel not found.")
     }    
 }

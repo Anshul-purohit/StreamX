@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Chat from './Chat/Chat'
 import ChannelDescription from './ChannelDescription'
+import useChannelDetails from '../../../shared/hooks/useChannelDetails'
+import { useParams } from 'react-router-dom'
+import LoadingSpinner from '../../../shared/components/LoadingSpiner'
 
 const channelDetails = {
     id: 1,
@@ -10,7 +13,22 @@ const channelDetails = {
     isOnline: false
 }
 
-const ChannelVIew = () => {
+const ChannelVIew = ({ getChannels }) => {
+
+    const { isFetching, getChannelDetails, channelDetails } = useChannelDetails()
+
+    const { id } = useParams()
+
+    useEffect(() => {
+        getChannelDetails(id)
+    },[])
+
+    if(isFetching)
+        return <LoadingSpinner />
+
+
+    console.log("X : ",channelDetails)
+
   return (
     <div>
         <div>
@@ -22,6 +40,7 @@ const ChannelVIew = () => {
                 title={channelDetails.title}
                 description={channelDetails.description}
                 username={channelDetails.username}
+                getChannels={getChannels}
             />
         </div>
         <Chat />

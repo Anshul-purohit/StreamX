@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { passwordValidationMessage, validatePassword } from '../../../shared/validators/validatePassword'
 import { passwordConfValidationMessage } from '../../../shared/validators/validatePasswordConf'
 import Input from '../../../shared/components/Input'
+import useChangePassword from '../../../shared/hooks/useChangePassword'
 
 const inputs = [
     {
@@ -33,6 +34,8 @@ const PasswordSettings = () => {
         }
     })
 
+    const { changePassword } = useChangePassword()
+
     const handleInputValueChange = (value, field) => {
         setFormState((prevState) => ({
             ...prevState,
@@ -60,6 +63,7 @@ const PasswordSettings = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
+        changePassword(formState.password.value,formState.newPassword.value)
     }
 
   return (

@@ -10,7 +10,7 @@ export const putChannelSettings = async (req,res) => {
         const userData = await User.findById(userId, {username: 1, channel:1})
 
         if(userData.username !== username){
-            await User.updateOne({_id, userId}, {username})
+            await User.updateOne({_id: userId}, {username})
         }
 
         const channelData = await Channel.findByIdAndUpdate(userData.channel, {

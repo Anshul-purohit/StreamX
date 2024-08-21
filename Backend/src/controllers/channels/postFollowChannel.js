@@ -6,6 +6,8 @@ export const postFollowChannel = async (req,res) => {
 
         const { channelId } = req.body
 
+        // console.log("fffff : ",channelId)
+
         const userData = await User.findById(userId, {followedChannels: 1})
 
         if(userData.followedChannels.includes(channelId)){

@@ -16,6 +16,7 @@ const ChannelAvatar = ({ url }) => {
 
 const ChannelCard = ({
     title,
+    id,
     username,
     isOnline,
     avatarUrl,
@@ -23,7 +24,7 @@ const ChannelCard = ({
 }) => {
 
     const handleNavigate = () => {
-        navigateToChannelHandler()
+        navigateToChannelHandler(id)
     }
 
     return (

@@ -56,7 +56,11 @@ const followedChannels = [
     }
 ]
 
-const Sidebar = () => {
+const Sidebar = ({ channels }) => {
+
+    if(!channels)
+        return null
+
   return (
     <div className="w-64 bg-gray-900 text-gray-200 p-4">
       <div className="mb-6">
@@ -64,7 +68,7 @@ const Sidebar = () => {
         <span className="text-sm text-gray-400 uppercase tracking-wider">Followed Channels</span>
       </div>
       <div className="space-y-4">
-        {followedChannels.map((channel) => (
+        {channels.map((channel) => (
           <div 
             key={channel.id} 
             className="flex items-center justify-between p-2 rounded-md hover:bg-gray-800 transition-colors cursor-pointer"
