@@ -25,7 +25,7 @@ const channelSchema = new Schema({
     },
     streamKey: {
         type: String,
-        default: uuid()
+        default: uuid
     },
     messages: {
         type: [{

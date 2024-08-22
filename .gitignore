@@ -24,3 +24,6 @@
 /Frontendnpm-debug.log*
 /Frontendyarn-debug.log*
 /Frontendyarn-error.log*
+
+
+/RTMP-Server/node_modules
